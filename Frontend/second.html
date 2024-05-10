@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Care System</title>
+    <link rel="stylesheet" href="css/second_styles.css">
+    <link rel="icon" type="image/png" href="assets\img\logo.png" />
+    <style>
+        /* Style for modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px; /* Location of the box */
+        }
+
+        /* Modal content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* Close button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Style for form fields */
+        #newPatientForm label,
+        #newPatientForm input,
+        #newPatientForm select,
+        #newPatientForm textarea {
+            display: block;
+            margin-bottom: 20px; /* Increase the gap between fields */
+            width: 100%; /* Full width for form fields */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+
+        /* Style for submit button */
+        #newPatientForm button[type="submit"] {
+            width: auto; /* Reset width to auto */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Health Care System</h1>
+            <p>Welcome to our Queue Management System</p>
+        </header>
+
+        <section class="options">
+            <div class="option">
+                <h2>Biometric Queue</h2>
+                <img src="biometric_icon.png" alt="Biometric Icon">
+                <p>Click to enter the Biometric Queue</p>
+                <button onclick="openBiometricQueue()">Go to Queue</button>
+            </div>
+            <div class="option">
+                <h2>Display Queue</h2>
+                <img src="display_icon.png" alt="Display Icon">
+                <p>Click to view the Display Queue</p>
+                <button onclick="openDisplayQueue()">View Queue</button>
+            </div>
+            <div class="option">
+                <h2>Normal Queue</h2>
+                <img src="normal_icon.png" alt="Normal Icon">
+                <p>Click to enter the Normal Queue</p>
+                <button onclick="openNormalQueue()">Go to Queue</button>
+            </div>
+            <div class="option">
+                <h2>Add a New Patient</h2>
+                <img src="add_patient_icon.png" alt="Add Patient Icon">
+                <p>Click to add a new patient</p>
+                <button onclick="openModal()">Add Patient</button>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Queue Management System. All rights reserved.</p>
+        </footer>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Add a New Patient</h2>
+                <form id="newPatientForm">
+                    <label for="patientId">Patient ID:</label>
+                    <input type="text" id="patientId" name="patientId" required>
+
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required>
+
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
+
+                    <label for="medicalHistory">Medical History:</label>
+                    <textarea id="medicalHistory" name="medicalHistory" required></textarea>
+
+                    <label for="fingerprintImage">Add Fingerprint Image:</label>
+                    <input type="file" id="fingerprintImage" name="fingerprintImage" accept="image/*" required>
+
+                    <label for="status">Status:</label>
+                    <select id="status" name="status" required>
+                        <option value="emergency">Emergency</option>
+                        <option value="normal">Normal</option>
+                    </select>
+
+                    <button type="submit">Add Patient</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openBiometricQueue() {
+            // Add your code to open the biometric queue page or perform relevant actions
+            alert("Opening Biometric Queue");
+        }
+
+        function openDisplayQueue() {
+            // Add your code to open the display queue page or perform relevant actions
+            alert("Viewing Display Queue");
+        }
+
+        function openNormalQueue() {
+            // Add your code to open the normal queue page or perform relevant actions
+            alert("Entering Normal Queue");
+        }
+
+        function openModal() {
+            // Show the modal
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            // Hide the modal
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
